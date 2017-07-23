@@ -4,7 +4,9 @@ var peopleToAdd = []; // List of people that meet criteria
 var peopleAdded = 0; // Number of people added
 
 // Start the auto-scrolling every 2 seconds
-var scroll = setInterval(autoScrolling, 2000); 
+var scroll; 
+
+function follow() { scroll = setInterval(autoScrolling, 2000); }
 
 function autoScrolling() {
 	// 500 person limit (I believe the Twitter limit is 1000/day) or until bottom of page is reached

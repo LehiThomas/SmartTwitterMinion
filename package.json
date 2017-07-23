@@ -1,0 +1,22 @@
+{
+  "name": "smart-twitter-minion",
+  "version": "1.0.0",
+  "description": "Twitter Minion is designed to automate finding high quality people to follow on twitter. It accomplishes this with the following features:\r * Detects how many people to follow based of the users follow to follower ratio\r * Compares person to the follow history list\r * Only follows people who meet a certain profile score thresh hold\r * Determines a persons score threshold based off the following:\r \t* Does the user have a BIO\r \t*  Does the users bio contain the given key words\r \t* Does the user have a banner picture\r \t* Does the user have a profile picture",
+  "main": "twitterMinion.js",
+  "scripts": {
+    "start": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://toothpickfactory@github.com/LehiThomas/SmartTwitterMinion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LehiThomas/SmartTwitterMinion/issues"
+  },
+  "homepage": "https://github.com/LehiThomas/SmartTwitterMinion#readme",
+  "dependencies": {
+    "webpack": "^3.3.0"
+  }
+}
