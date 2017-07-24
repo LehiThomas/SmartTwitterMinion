@@ -1,4 +1,4 @@
-export default function(DOMCard){
+function createCard(DOMCard){
 	return {
 		id: getId(DOMCard),
 		ele: DOMCard,
@@ -6,12 +6,13 @@ export default function(DOMCard){
 		hasAvatar: checkForAvatar(DOMCard),
 		hasBio: checkForBio(DOMCard),
 		isFollowed: checkForFollowed(DOMCard),
-		bio: getBio(DOMCard)
+		bio: getBio(DOMCard),
+		doClick: doClick
 	}
 }
 
 function getId(DOMCard){
-	return DOMCard.attributes.data-user-id;
+	return DOMCard.attributes["data-user-id"].value;
 }
 
 function checkForBanner(DOMCard){
@@ -21,7 +22,7 @@ function checkForBanner(DOMCard){
 
 function checkForAvatar(DOMCard){
 	let ele = DOMCard.querySelector(".ProfileCard-avatarImage");
-	return !ele.attributes.src.includes("default_profile_images");
+	return !ele.attributes.src.value.includes("default_profile_images");
 }
 
 function checkForBio(DOMCard){
@@ -39,3 +40,10 @@ function checkForFollowed(DOMCard){
 	let ele = DOMCard.querySelector(".follow-text");
 	return ele.innerText === "Follow";
 }
+
+function doClick(){
+	let btn = this.ele.querySelector(".follow-text");
+	btn.click();
+}
+
+export default createCard;
