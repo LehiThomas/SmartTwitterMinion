@@ -5,6 +5,7 @@ export default function(DOMCard){
 		hasBanner: checkForBanner(DOMCard),
 		hasAvatar: checkForAvatar(DOMCard),
 		hasBio: checkForBio(DOMCard),
+		isFollowed: checkForFollowed(DOMCard),
 		bio: getBio(DOMCard)
 	}
 }
@@ -32,4 +33,9 @@ function checkForBio(DOMCard){
 function getBio(DOMCard){
 	let ele = DOMCard.querySelector(".ProfileCard-bio");
 	return ele.innerText;
+}
+
+function checkForFollowed(DOMCard){
+	let ele = DOMCard.querySelector(".follow-text");
+	return ele.innerText === "Follow";
 }
