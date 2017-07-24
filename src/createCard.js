@@ -33,9 +33,3 @@ function getBio(DOMCard){
 	let ele = DOMCard.querySelector(".ProfileCard-bio");
 	return ele.innerText;
 }
-
-// const bio = card.getElementsByClassName("ProfileCard-bio");
-
-// .not-following
-
-// let cardsDom = document.querySelectorAll(".ProfileCard");
