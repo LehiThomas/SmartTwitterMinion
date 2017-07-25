@@ -1,6 +1,6 @@
 import autoScrolling  from './autoScrolling';
 import follow  from './follow';
-import start  from './launch';
+import start  from './start';
 
 const TwitterMinion = {
 	count: 1,
