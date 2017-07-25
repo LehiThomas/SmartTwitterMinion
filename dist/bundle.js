@@ -71,6 +71,8 @@
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__autoScrolling__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__follow__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__start__ = __webpack_require__(3);
+
 
 
 
@@ -79,11 +81,14 @@ const TwitterMinion = {
 	people: [],
 	peopleToAdd: [],
 	peopleAdded: 0,
+	scrollInterval: 0,
 	autoScrolling: __WEBPACK_IMPORTED_MODULE_0__autoScrolling__["a" /* default */],
-	follow: __WEBPACK_IMPORTED_MODULE_1__follow__["a" /* default */]
+	follow: __WEBPACK_IMPORTED_MODULE_1__follow__["a" /* default */],
+	start: __WEBPACK_IMPORTED_MODULE_2__start__["a" /* default */]
 }
 
 window.TwitterMinion = TwitterMinion;
+
 
 /***/ }),
 /* 1 */
@@ -91,8 +96,29 @@ window.TwitterMinion = TwitterMinion;
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function() {
-	this.count++
+	this.count++;
+	// 500 person limit (I believe the Twitter limit is 1000/day) or until bottom of page is reached
+	if (peopleToAdd.length >= 500 || (window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+    clearInterval(this.scrollInterval);
+		// Return true to know when this function is done running?
+		return true;
+  } else {
+		window.scrollTo(0,document.body.scrollHeight);
+		this.people = document.getElementsByClassName("ProfileCard");
+
+		for (var i = 0; i < this.people.length; i++) {
+			const card = this.people[i];
+			const bio = card.getElementsByClassName("ProfileCard-bio");
+			const button = card.getElementsByClassName("follow-text");
+
+			// Only add person to list if they have a bio and are not yet being followed
+			if (bio[0].innerText !== "" && button[0].innerText === "Follow") {
+				peopleToAdd.push(card);
+			}
+		}
+	}
 });
+
 
 /***/ }),
 /* 2 */
@@ -101,7 +127,36 @@ window.TwitterMinion = TwitterMinion;
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = (function(){
 	alert(this.count);
+	for (var i = 0; i < this.peopleToAdd.length; i++) {
+		var card = this.peopleToAdd[i];
+		var button = card.getElementsByClassName("follow-text");
+
+		if (this.peopleAdded > 500) {
+			alert(`You followed ${this.peopleAdded} people!`);
+			break;
+		} else {
+			// click button every 15 seconds
+			setTimeout(function(){
+				button[0].click();
+			}, 15000);
+			this.peopleAdded++;
+		}
+	}
 });
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony default export */ __webpack_exports__["a"] = (function() {
+  this.scroll = setInterval(autoScrolling, 2000);
+
+  // if autoScrolling return TRUE
+  follow();
+});
+
 
 /***/ })
 /******/ ]);
