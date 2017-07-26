@@ -1,6 +1,6 @@
 export default function() {
-  this.scroll = setInterval(autoScrolling, 2000);
+  this.scroll = setInterval(this.autoScrolling, 2000);
 
-  // if autoScrolling return TRUE
-  follow();
+  //if autoScrolling return TRUE
+  this.follow();
 }

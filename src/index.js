@@ -1,16 +1,14 @@
-import autoScrolling  from './autoScrolling';
-import follow  from './follow';
-import start  from './start';
+import assessMaxFollow from './assessMaxFollow';
 
-const TwitterMinion = {
-	count: 1,
-	people: [],
-	peopleToAdd: [],
-	peopleAdded: 0,
-	scrollInterval: 0,
-	autoScrolling,
-	follow,
-	start
-}
+window.TwitterMinion =  (function(){
+	let myFollowing = 4997;
+	let myFollowers = 6238;
+	let maxFollow = assessMaxFollow(myFollowing, myFollowers);
+	return {
+		follow: () => {
+			gatherPeopleToFollow(maxFollow)
+				.then(followPeople(peopleToFollow))
+		}
+	}
+})();
 
-window.TwitterMinion = TwitterMinion;
