@@ -1,6 +1,7 @@
 export default function(){
 	alert(this.count);
-	for (var i = 0; i < this.peopleToAdd.length; i++) {
+	console.log(peopleToAdd)
+	for (var i = 0; i < peopleToAdd.length; i++) {
 		var card = this.peopleToAdd[i];
 		var button = card.getElementsByClassName("follow-text");
 
