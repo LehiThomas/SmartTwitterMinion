@@ -17,7 +17,7 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 	setTimeout(() => {
 		let scrolledPeople = document.getElementsByClassName("ProfileCard");
 
-		if(scrolledPeople.length >= maxPeople) return peopleToFollow;
+		if(scrolledPeople.length >= maxPeople) resolve(cards);
 
 		for(; index < scrolledPeople.length && cards.length < maxFollow; index++){
 			let card = createCard(scrolledPeople[index]);
