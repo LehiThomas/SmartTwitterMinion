@@ -23,7 +23,7 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 			cards.push(card);
 		}
 		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, maxPeople, resolve, reject, index, cards);
-	}, 2000);
+	}, 2000); // Be good to make this interval random
 }
 
 
