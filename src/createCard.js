@@ -7,6 +7,7 @@ function createCard(DOMCard){
 		hasBio: checkForBio(DOMCard),
 		isFollowed: checkForFollowed(DOMCard),
 		followsYou: checkFollowsYou(DOMCard),
+		isProtected: checkProtected(DOMCard),
 		bio: getBio(DOMCard),
 		doClick: doClick
 	}
@@ -45,6 +46,10 @@ function checkForFollowed(DOMCard){
 function checkFollowsYou(DOMCard){
 	let ele = DOMCard.querySelector(".FollowStatus");
 	return ele ? ele.innerText === "Follows you" : false;
+}
+
+function checkProtected(DOMCard){
+	return DOMCard.querySelector("[data-protected=true]") ? true : false;
 }
 
 function doClick(){
