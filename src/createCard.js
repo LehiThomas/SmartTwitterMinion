@@ -6,6 +6,7 @@ function createCard(DOMCard){
 		hasAvatar: checkForAvatar(DOMCard),
 		hasBio: checkForBio(DOMCard),
 		isFollowed: checkForFollowed(DOMCard),
+		followsYou: checkFollowsYou(DOMCard),
 		bio: getBio(DOMCard),
 		doClick: doClick
 	}
@@ -39,6 +40,11 @@ function getBio(DOMCard){
 function checkForFollowed(DOMCard){
 	let ele = DOMCard.querySelector(".follow-text");
 	return ele.innerText === "Follow";
+}
+
+function checkFollowsYou(DOMCard){
+	let ele = DOMCard.querySelector(".FollowStatus");
+	return ele ? ele.innerText === "Follows you" : false;
 }
 
 function doClick(){
