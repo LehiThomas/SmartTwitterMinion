@@ -1,11 +1,9 @@
 import createCard  from './createCard';
 import scoreCard  from './scoreCard';
+import getMaxPeople from './getMaxPeople';
 
 function gatherPeopleToFollow(maxFollow) {
-	// Get if followers or following
-	// Get maxPeople
-	let maxPeople = 500;
-
+	let maxPeople = getMaxPeople();
 	return new Promise((resolve, reject) => {
 		loopGather(maxFollow, maxPeople, resolve, reject);
 	});
