@@ -1,5 +1,5 @@
 import assessMaxFollow from './assessMaxFollow';
-import gatherPeopleToFollow from './gatherPeopleToFollow';
+import gatherCards from './gatherCards';
 import followPeople from './followPeople';
 
 window.TwitterMinion =  (function(){
@@ -8,7 +8,7 @@ window.TwitterMinion =  (function(){
 	let maxFollow = 100 //assessMaxFollow(myFollowing, myFollowers);
 	return {
 		follow: () => {
-			gatherPeopleToFollow(maxFollow)
+			gatherCards(maxFollow)
 				.then(cards => {
 					// Placing on window for debugging purposes
 					window.cards = cards;

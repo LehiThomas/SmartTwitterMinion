@@ -2,7 +2,7 @@ import createCard  from './createCard';
 import scoreCard  from './scoreCard';
 import getMaxPeople from './getMaxPeople';
 
-function gatherPeopleToFollow(maxFollow) {
+function gatherCards(maxFollow) {
 	let maxPeople = getMaxPeople();
 	return new Promise((resolve, reject) => {
 		loopGather(maxFollow, maxPeople, resolve, reject);
@@ -27,4 +27,4 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 }
 
 
-export default gatherPeopleToFollow;
+export default gatherCards;
