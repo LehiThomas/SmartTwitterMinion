@@ -3,16 +3,16 @@ import createCard  from './createCard';
 function scoreCard(card) {
   let score = 0;
 
-  if (card.checkForBio) {
+  if (card.hasBio) {
     //let keywords = TwitterMinion.wordList.split(", ");
     score += 10;
   }
   // Filter for background images
-  if (card.checkForBanner) {
+  if (card.hasBanner) {
     score += 10;
   }
   // Filter for profile picture
-  if (card.checkForAvatar) {
+  if (card.hasAvatar) {
     score += 10;
   }
   return score;

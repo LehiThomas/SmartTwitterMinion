@@ -5,7 +5,7 @@ import followPeople from './followPeople';
 window.TwitterMinion =  (function(){
 	let myFollowing = 4997;
 	let myFollowers = 6238;
-	let maxFollow = 10; //assessMaxFollow(myFollowing, myFollowers);
+	let maxFollow = assessMaxFollow(myFollowing, myFollowers);
 	return {
 		follow: () => {
 			gatherCards(maxFollow)

@@ -15,12 +15,12 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 	setTimeout(() => {
 		let scrolledPeople = document.getElementsByClassName("ProfileCard");
 
-		if(scrolledPeople.length >= maxPeople || cards.length >= maxFollow) resolve(cards);
+		if(scrolledPeople.length >= maxPeople ) resolve(cards);
 
 		for(; index < scrolledPeople.length && cards.length < maxFollow; index++){
 			let card = createCard(scrolledPeople[index]);
 			// Score the card here
-			if (card.checkForFollowed) {
+			if (card.checkForFollowed || card.isProtected) {
 				continue;
 			} else {
 				if (scoreCard(card) >= 30) {
