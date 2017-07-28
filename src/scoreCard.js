@@ -1,5 +1,3 @@
-import createCard  from './createCard';
-
 function scoreCard(card) {
   let score = 0;
 
