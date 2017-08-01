@@ -1,4 +1,5 @@
 import config from './config';
+import scoreCard  from './scoreCard';
 
 function followFilter(card) {
   // Score the card here

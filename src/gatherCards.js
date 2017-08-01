@@ -1,5 +1,4 @@
 import createCard  from './createCard';
-import scoreCard  from './scoreCard';
 import getMaxPeople from './getMaxPeople';
 
 function gatherCards(maxFollow, cardCheck) {
