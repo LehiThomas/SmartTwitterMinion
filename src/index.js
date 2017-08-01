@@ -9,7 +9,7 @@ window.TwitterMinion =  (function(){
 	let bannerScore = 0;
 	let profileScore = 0;
 	let keyWords = [];
-	return {
+	let _this = {
 		follow: () => {
 			// Get Max Follow Count - User may change the value
 			let maxFollow = assessMaxFollow(myFollowing, myFollowers);
@@ -22,14 +22,29 @@ window.TwitterMinion =  (function(){
 				})
 			// .then(peopleToFollow => followPeople(peopleToFollow))
 		},
-		setup: () => {
-			// Self Details
-			myFollowing = prompt("How many followers do you have?", myFollowing);
-			myFollowers = prompt("How many people are you following?", myFollowers);
-			// Scoreing Details
-			passingScore = prompt("Minimum Passing Score", passingScore);
-			bannerScore = prompt("Banner Score", bannerScore);
-			profileScore = prompt("Profile Score", profileScore);
+		setup: {
+			promptAll: () => {
+				_this.setup.promptMyFollowing();
+				_this.setup.promptMyFollowers();
+				_this.setup.promptPassingScore();
+				_this.setup.promptBannerScore();
+				_this.setup.promptProfileScore();
+			},
+			promptMyFollowing: () => {
+				myFollowing = prompt("How many followers do you have?", myFollowing);
+			},
+			promptMyFollowers: () => {
+				myFollowers = prompt("How many people are you following?", myFollowers);
+			},
+			promptPassingScore: () => {
+				passingScore = prompt("Minimum Passing Score", passingScore);
+			},
+			promptBannerScore: () => {
+				bannerScore = prompt("Banner Score", bannerScore);
+			},
+			promptProfileScore: () => {
+				profileScore = prompt("Profile Score", profileScore);
+			}
 		},
 		test: () => {
 			console.error(`myFollowing ${myFollowing}`);
@@ -39,4 +54,5 @@ window.TwitterMinion =  (function(){
 			console.error(`profileScore ${profileScore}`);
 		}
 	}
+	return _this;
 })();
