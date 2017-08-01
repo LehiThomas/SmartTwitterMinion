@@ -4,6 +4,7 @@ import gatherCards from './gatherCards';
 import doClicker from './doClicker';
 import followPeople from './followPeople';
 import test from './test';
+import followFilter from './filters/followFilter';
 
 window.TwitterMinion =  (function(){
 	let _this = {

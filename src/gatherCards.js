@@ -18,7 +18,7 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 
 		for(; index < scrolledPeople.length && cards.length < maxFollow; index++){
       let card = createCard(scrolledPeople[index]);
-      if(cardCheck(card)) cards.push(card);
+      if(cardCheck.call(card)) cards.push(card);
     }
 		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, maxPeople, resolve, reject, index, cards);
 	}, 2000); // Be good to make this interval random
