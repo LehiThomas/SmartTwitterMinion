@@ -1,5 +1,6 @@
 import assessMaxFollow from './assessMaxFollow';
 import gatherCards from './gatherCards';
+import doClicker from './doClicker';
 import followPeople from './followPeople';
 
 window.TwitterMinion =  (function(){
@@ -11,16 +12,12 @@ window.TwitterMinion =  (function(){
 	let keyWords = [];
 	let _this = {
 		follow: () => {
-			// Get Max Follow Count - User may change the value
 			let maxFollow = assessMaxFollow(myFollowing, myFollowers);
 			maxFollow = prompt(`The max that can be followed is ${maxFollow}. You may set a different amount`, maxFollow);
 
 			gatherCards(maxFollow)
-				.then(cards => {
-					// Placing on window for debugging purposes
-					window.cards = cards;
-				})
-			// .then(peopleToFollow => followPeople(peopleToFollow))
+				.then(cards => doClicker(cards))
+				.then(() =>  alert("All done!"));
 		},
 		setup: {
 			promptAll: () => {
