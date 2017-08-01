@@ -1,7 +1,6 @@
 import config from './config';
 
-function followFilter(card, passingScore) {
-  let card = card;
+function followFilter(card) {
   // Score the card here
   if (card.checkForFollowed || card.isProtected) {
     return false;
