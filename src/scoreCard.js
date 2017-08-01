@@ -1,17 +1,19 @@
+import config from './config';
+
 function scoreCard(card) {
   let score = 0;
 
   if (card.hasBio) {
     //let keywords = TwitterMinion.wordList.split(", ");
-    score += 10;
+    score += config.profileScore;
   }
   // Filter for background images
   if (card.hasBanner) {
-    score += 10;
+    score += config.bannerScore;
   }
   // Filter for profile picture
   if (card.hasAvatar) {
-    score += 10;
+    score += config.avatarScore;
   }
   return score;
 }
