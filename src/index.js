@@ -15,7 +15,7 @@ window.TwitterMinion =  (function(){
 			let maxFollow = assessMaxFollow(myFollowing, myFollowers);
 			maxFollow = prompt(`The max that can be followed is ${maxFollow}. You may set a different amount`, maxFollow);
 
-			gatherCards(maxFollow)
+			gatherCards(maxFollow, followFilter)
 				.then(cards => {
 					// Placing on window for debugging purposes
 					window.cards = cards;
