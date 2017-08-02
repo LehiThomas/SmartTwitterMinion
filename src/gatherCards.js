@@ -1,5 +1,7 @@
+import config from './config';
 import createCard  from './createCard';
 import getMaxPeople from './getMaxPeople';
+import randomTime from './randomTime';
 
 function gatherCards(maxFollow, cardCheck) {
 	let maxPeople = getMaxPeople();
@@ -21,7 +23,7 @@ function loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index = 0,
       if(cardCheck(card)) cards.push(card);
 		}
 		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index, cards);
-	}, 2000); // Be good to make this interval random
+	}, randomTime(config.scrollInterval.min, config.scrollInterval.max));
 }
 
 

@@ -1,3 +1,6 @@
+import config from './config';
+import randomTime from './randomTime';
+
 function doClicker(cards){
 	return new Promise((resolve, reject) => {
 		loopClick(cards, resolve, reject);
@@ -11,7 +14,7 @@ function loopClick(cards, resolve, reject, index = 0){
 		card.doClick();
 		index++;
 		loopClick(cards, resolve, reject, index);
-	}, 2000);
+	}, randomTime(config.clickInterval.min, config.clickInterval.max));
 }
 
 export default doClicker;
