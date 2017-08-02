@@ -3,7 +3,7 @@ let config = {
 	myFollowers: 0,
 	passingScore: 0,
 	bannerScore: 0,
-	profileScore: 0,
+	avatarScore: 0,
 	keyWords:[]
 }
 

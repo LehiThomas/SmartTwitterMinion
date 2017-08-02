@@ -2,7 +2,6 @@ import config from './config';
 import assessMaxFollow from './assessMaxFollow';
 import gatherCards from './gatherCards';
 import doClicker from './doClicker';
-import followPeople from './followPeople';
 import test from './test';
 import followFilter from './filters/followFilter';
 
@@ -22,7 +21,7 @@ window.TwitterMinion =  (function(){
 				_this.setup.promptMyFollowers();
 				_this.setup.promptPassingScore();
 				_this.setup.promptBannerScore();
-				_this.setup.promptProfileScore();
+				_this.setup.promptAvatarScore();
 			},
 			promptMyFollowing: () => {
 				config.myFollowing = prompt("How many followers do you have?", config.myFollowing);
@@ -36,8 +35,8 @@ window.TwitterMinion =  (function(){
 			promptBannerScore: () => {
 				config.bannerScore = prompt("Banner Score", config.bannerScore);
 			},
-			promptProfileScore: () => {
-				config.profileScore = prompt("Profile Score", config.profileScore);
+			promptAvatarScore: () => {
+				config.avatarScore = prompt("Profile Score", config.avatarScore);
 			}
 		},
 		test: test

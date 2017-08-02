@@ -5,7 +5,6 @@ function scoreCard(card) {
 
   if (card.hasBio) {
     //let keywords = TwitterMinion.wordList.split(", ");
-    score += config.profileScore;
   }
   // Filter for background images
   if (card.hasBanner) {
@@ -15,6 +14,7 @@ function scoreCard(card) {
   if (card.hasAvatar) {
     score += config.avatarScore;
   }
+  
   return score;
 }
 

@@ -4,11 +4,11 @@ import getMaxPeople from './getMaxPeople';
 function gatherCards(maxFollow, cardCheck) {
 	let maxPeople = getMaxPeople();
 	return new Promise((resolve, reject) => {
-		loopGather(maxFollow, maxPeople, resolve, reject);
+		loopGather(maxFollow, cardCheck, maxPeople, resolve, reject);
 	});
 }
 
-function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []){
+function loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index = 0, cards = []){
 	window.scrollTo(0, document.body.scrollHeight);
 
 	setTimeout(() => {
@@ -18,9 +18,9 @@ function loopGather(maxFollow, maxPeople, resolve, reject, index = 0, cards = []
 
 		for(; index < scrolledPeople.length && cards.length < maxFollow; index++){
       let card = createCard(scrolledPeople[index]);
-      if(cardCheck.call(card)) cards.push(card);
-    }
-		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, maxPeople, resolve, reject, index, cards);
+      if(cardCheck(card)) cards.push(card);
+		}
+		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index, cards);
 	}, 2000); // Be good to make this interval random
 }
 
