@@ -22,6 +22,9 @@ window.TwitterMinion =  (function(){
 				_this.setup.promptPassingScore();
 				_this.setup.promptBannerScore();
 				_this.setup.promptAvatarScore();
+				_this.setup.promptBioScore();
+				_this.setup.promptKeywordScore();
+				_this.setup.promptKeywords();
 			},
 			promptMyFollowing: () => {
 				config.myFollowing = prompt("How many followers do you have?", config.myFollowing);
@@ -33,10 +36,19 @@ window.TwitterMinion =  (function(){
 				config.passingScore = prompt("Minimum Passing Score", config.passingScore);
 			},
 			promptBannerScore: () => {
-				config.bannerScore = prompt("Banner Score", config.bannerScore);
+				config.bannerScore = prompt("Banner Img Score", config.bannerScore);
 			},
 			promptAvatarScore: () => {
-				config.avatarScore = prompt("Profile Score", config.avatarScore);
+				config.avatarScore = prompt("Profile Img Score", config.avatarScore);
+			},
+			promptBioScore: () => {
+				config.avatarScore = prompt("Bio Score", config.avatarScore);
+			},
+			promptKeywordScore: () => {
+				config.avatarScore = prompt("Keyword Score per word", config.avatarScore);
+			},
+			promptKeywords: () => {
+				config.avatarScore = prompt("Keywords:", config.avatarScore);
 			}
 		},
 		test: test
