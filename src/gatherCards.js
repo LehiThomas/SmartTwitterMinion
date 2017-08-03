@@ -5,6 +5,7 @@ import randomTime from './randomTime';
 
 function gatherCards(maxFollow, cardCheck) {
 	let maxPeople = getMaxPeople();
+	console.error("Begin...");
 	return new Promise((resolve, reject) => {
 		loopGather(maxFollow, cardCheck, maxPeople, resolve, reject);
 	});
@@ -21,6 +22,9 @@ function loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index = 0,
 		for(; index < scrolledPeople.length && cards.length < maxFollow; index++){
       let card = createCard(scrolledPeople[index]);
       if(cardCheck(card)) cards.push(card);
+			if(cards.length % (maxFollow/10) === 0){
+				console.error(cards.length + " people collected out of " + maxFollow);
+			}
 		}
 		cards.length >= maxFollow ? resolve(cards) : loopGather(maxFollow, cardCheck, maxPeople, resolve, reject, index, cards);
 	}, randomTime(config.scrollInterval.min, config.scrollInterval.max));
