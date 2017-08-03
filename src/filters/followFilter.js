@@ -3,7 +3,7 @@ import scoreCard  from '../scoreCard';
 
 function followFilter(card) {
   // Score the card here
-  if (card.checkForFollowed || card.isProtected) {
+  if (card.isFollowed || card.isProtected) {
     return false;
   } else {
     if (scoreCard(card) >= config.passingScore) {

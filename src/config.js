@@ -9,11 +9,11 @@ let config = {
 	keywords: "",
 	scrollInterval: {
 		min: 2000,
-		max: 10000
+		max: 7000
 	},
 	clickInterval: {
 		min: 2000,
-		max: 20000
+		max: 10000
 	}
 }
 
