@@ -1,28 +1,36 @@
 import config from './config';
 
 function scoreCard(card) {
-  let score = 0;
-
+  var score = 0;
+  console.error(score);
   if (card.hasBio) {
-    score += config.bioScore
+    score += parseInt(config.bioScore);
+    console.error("Add Bio " + score);
     if (config.keywords.length !== 0) {
       let keywords = config.keywords.split(", ");
+      console.error(keywords);
       // scan bio for keywords
       for (var j = 0; j < keywords.length; j++) {
         if (card.bio.includes(keywords[j])) {
-          score += config.keywordScore;
+          console.error("Found: " + keywords[j]);
+          console.error(score);
+          score += parseInt(config.keywordScore);
+          console.error(score);
         }
       }
     }
   }
   // Filter for background images
   if (card.hasBanner) {
-    score += config.bannerScore;
+    score += parseInt(config.bannerScore);
+    console.error("Add Banner " + score);
   }
   // Filter for profile picture
   if (card.hasAvatar) {
-    score += config.avatarScore;
+    score += parseInt(config.avatarScore);
+    console.error("Add Profile " + score);
   }
+  console.error("Final Score " + score);
   return score;
 }
 

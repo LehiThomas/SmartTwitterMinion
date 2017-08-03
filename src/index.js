@@ -42,13 +42,13 @@ window.TwitterMinion =  (function(){
 				config.avatarScore = prompt("Profile Img Score", config.avatarScore);
 			},
 			promptBioScore: () => {
-				config.avatarScore = prompt("Bio Score", config.avatarScore);
+				config.bioScore = prompt("Bio Score", config.bioScore);
 			},
 			promptKeywordScore: () => {
-				config.avatarScore = prompt("Keyword Score per word", config.avatarScore);
+				config.keywordScore = prompt("Keyword Score per word", config.keywordScore);
 			},
 			promptKeywords: () => {
-				config.avatarScore = prompt("Keywords:", config.avatarScore);
+				config.keywords = prompt("Keywords:", config.keywords);
 			}
 		},
 		test: test

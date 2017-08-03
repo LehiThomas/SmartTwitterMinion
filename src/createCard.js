@@ -40,7 +40,7 @@ function getBio(DOMCard){
 
 function checkForFollowed(DOMCard){
 	let ele = DOMCard.querySelector(".user-actions");
-	return ele.classList.contains("following");
+	return ele !== null ? ele.classList.contains("following") : false;
 }
 
 function checkFollowsYou(DOMCard){
