@@ -14,3 +14,8 @@ Twitter Minion will keep a history of previous sessions. These sessions will be 
 * Date of search
 * Amount followed
 * Amount who have followed back to date
+
+Instructions:
+* Copy and paste the bundle.js file into the console of the page you wish to run this on
+* To override default values and input search terms enter TwitterMinion.setup.promptAll() and fill in the prompts
+* Enter TwitterMinion.follow() to run the program
