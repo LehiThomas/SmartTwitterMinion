@@ -1,29 +1,49 @@
-import config from './config';
+import config from "./config";
 
 function scoreCard(card) {
-  var score = 0;
+  let cardPasses = true;
+  var keywordsFound = 0;
 
-  if (card.hasBio) {
-    score += parseInt(config.bioScore);
+  // Filter for background images
+  // is background required?
+  if (config.isBannerRequired) {
+    if (!card.hasBanner) {
+      cardPasses = false;
+      return cardPasses;
+    }
+  }
+
+  // Filter for profile picture
+  // is profile required?
+  if (config.isAvatarRequired) {
+    if (!card.hasAvatar) {
+      cardPasses = false;
+      return cardPasses;
+    }
+  }
+
+  if (config.isBioRequired) {
+    if (!card.hasBio) {
+      cardPasses = false;
+      return cardPasses;
+    }
     if (config.keywords.length !== 0) {
-      let keywords = config.keywords.split(", ");
+      let keywords = config.keywords.split(",");
       // scan bio for keywords
       for (var j = 0; j < keywords.length; j++) {
         if (card.bio.includes(keywords[j])) {
-          score += parseInt(config.keywordScore);
+          keywordsFound += 1;
+          if (keywordsFound >= config.numberKeywordsRequired) {
+            continue;
+          }
         }
+      }
+      if (keywordsFound < config.numberKeywordsRequired) {
+        cardPasses = false;
       }
     }
   }
-  // Filter for background images
-  if (card.hasBanner) {
-    score += parseInt(config.bannerScore);
-  }
-  // Filter for profile picture
-  if (card.hasAvatar) {
-    score += parseInt(config.avatarScore);
-  }
-  return score;
+  return cardPasses;
 }
 
 export default scoreCard;
