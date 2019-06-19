@@ -2,7 +2,7 @@ import config from "./config";
 
 function scoreCard(card) {
   let cardPasses = true;
-  var keywordsFound = 0;
+  let keywordsFound = 0;
 
   // Filter for background images
   // is background required?
@@ -28,10 +28,10 @@ function scoreCard(card) {
       return cardPasses;
     }
     if (config.keywords.length !== 0) {
-      let keywords = config.keywords.split(",");
+      let keywords = config.keywords.toLowerCase().split(",");
       // scan bio for keywords
       for (var j = 0; j < keywords.length; j++) {
-        if (card.bio.includes(keywords[j])) {
+        if (card.bio.toLowerCase().includes(keywords[j].trim())) {
           keywordsFound += 1;
           if (keywordsFound >= config.numberKeywordsRequired) {
             continue;
