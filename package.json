@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/LehiThomas/SmartTwitterMinion#readme",
   "dependencies": {
-    "webpack": "^3.3.0"
+    "webpack": "^5.75.0"
   }
 }
